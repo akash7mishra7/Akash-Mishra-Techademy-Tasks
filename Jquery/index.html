@@ -18,6 +18,15 @@
       padding: 20px;
       transition: background-color 0.3s ease;
     }
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin-top: 20px;
+    }
+    td, th {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
   </style>
 </head>
 <body>
@@ -99,6 +108,15 @@
 
   <p id="textPara">This is the original text.</p>
   <button id="changeText">Change Text</button>
+
+  <h3>Student Table</h3>
+  <table>
+    <tr><th>Name</th><th>Age</th></tr>
+    <tr><td>Akash</td><td>21</td></tr>
+    <tr><td>Sneha</td><td>22</td></tr>
+    <tr><td>Raj</td><td>20</td></tr>
+    <tr><td>Meera</td><td>23</td></tr>
+  </table>
 
   <script>
     $(document).ready(function() {
@@ -197,13 +215,26 @@
         }
       });
 
+      // change page bg
       $("#changeBg").click(function(){
-        $("body").css("background-color", "#ADD8E6"); // Light Blue
+        $("body").css("background-color", "#ADD8E6");
       });
 
+      // change text dynamically
       $("#changeText").click(function(){
         $("#textPara").text("The paragraph text has been updated!");
       });
+
+      // vordering input elements
+      $(document).ready(function(){
+        $("input").css("border", "2px solid #007BFF");
+      });
+
+      $(document).ready(function(){
+        $("table tr:odd").css("background-color", "#f2f2f2"); // even rows (0-based index)
+        $("table tr:even").css("background-color", "#ffffff"); // odd rows (header + rest)
+      });
+
     });
   </script>
 
