@@ -61,3 +61,4 @@ function showEmployees(){
 }
 
 profile(1,"Akash","Java Dev");
+preferences("Hindi","dark");
