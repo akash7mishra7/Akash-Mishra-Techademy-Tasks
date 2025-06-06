@@ -118,6 +118,31 @@
     <tr><td>Meera</td><td>23</td></tr>
   </table>
 
+  <h3>Type Something</h3>
+  <input type="text" id="myInput">
+
+  <div id="myDiv" style="width: 200px; height: 100px; background-color: lightblue;">
+    Double-click me to change color!
+  </div>
+
+  <div class="container">
+    <button class="toggle-button">Toggle Content</button>
+    <div class="content">
+      <p>This is the content that will be expanded or collapsed.</p>
+      <p>More content here...</p>
+    </div>
+  </div>
+
+  <button id="animBttn" style="position: relative;">Click Me</button>
+
+  <ul id="myList">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <li>Item 4</li>
+    <li>Item 5</li>
+  </ul>
+
   <script>
     $(document).ready(function() {
       // Activity 1.1: Alert on page load
@@ -230,9 +255,38 @@
         $("input").css("border", "2px solid #007BFF");
       });
 
+      // bg colour of even and odd rows of table
       $(document).ready(function(){
-        $("table tr:odd").css("background-color", "#f2f2f2"); // even rows (0-based index)
-        $("table tr:even").css("background-color", "#ffffff"); // odd rows (header + rest)
+        $("table tr:odd").css("background-color", "#f2f2f2");
+        $("table tr:even").css("background-color", "#ffffff"); 
+      });
+
+      // alert on typing
+      $("#myInput").on("keypress", function(k){
+        alert("you typed: " +k.key);
+      });
+
+      // changes colour on doubleclick
+      $("#myDiv").dblclick(function() {
+        $(this).css("background-color", "red");
+      });
+
+      // Expand and collapse
+      $(".content").hide();
+      $(".toggle-button").click(function() {
+        $(".content").slideToggle();
+      });
+
+      $("#animBttn").click(function() {
+        $(this).animate({
+          left: '200px',
+          top: '-100px'
+        }, 500); // Animation duration in milliseconds
+      });
+
+      $(document).ready(function() {
+        $('#myList li:first').css('background-color', 'red');
+        $('#myList li:last').css("background-color", "blue");
       });
 
     });
