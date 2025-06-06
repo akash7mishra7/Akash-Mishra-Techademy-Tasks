@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Activities Combined</title>
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+      display: inline-block;
+      border: 1px solid #000;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: background-color 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Welcome to jQuery Practice!</h2>
+
+  <!-- Activity 2.1: Paragraph -->
+  <p id="message">This is the original text.</p>
+  <button id="changeBtn">Click to Change Text</button>
+
+  <!-- Activity 2.1: Highlight all <p> -->
+  <p>This is another paragraph.</p>
+
+  <!-- Activity 2.2: Class Selector -->
+  <div class="box">what</div>
+  <div class="box">i'm</div>
+  <div class="box">doing</div>
+
+  <!-- Activity 3.1: Alert Button -->
+  <button id="alertBtn">Click Me for Alert</button>
+
+  <!-- Activity 3.2: Hoverable paragraph -->
+  <p id="hoverPara">Hover over this paragraph.</p>
+
+  <!-- Activity 4.1: Image to fade out -->
+  <img id="fadeImg" src="https://via.placeholder.com/150" alt="Sample Image">
+  <button id="fadeBtn">Fade Out Image</button>
+
+  <!-- Acitivity 4.2: Collapsible Menu -->
+  <button id="toggleMenu">Toggle Menu</button>
+  <div id="menuBox" style="display:none; background-color:#f0f0f0; padding:10px;">
+   <p>This is the menu content.</p>
+  </div>
+
+  <!-- Acitivity 5.1: parent-child -->
+  <div class="parent-div" style="padding: 10px;">
+   <p>This is a <span>child span</span> inside a div.</p>
+  </div>
+
+  <!-- Acitivity 5.2: Sibling -->
+  <p id="firstPara">This is the first paragraph.</p>
+  <p>This is the next sibling paragraph.</p>
+
+  <!-- Acitivity 6.1: Show and hide -->
+  <p id="info">This is a paragraph to show or hide.</p>
+  <button id="hideBtn">Hide</button>
+  <button id="showBtn">Show</button>
+
+  <!-- Acitivity 6.2: FAQ -->
+  <div class="faq-item">
+   <h4 class="question" style="cursor:pointer;">What is jQuery?</h4>
+   <p class="answer" style="display:none;">jQuery is a fast, small, and feature-rich JavaScript library.</p>
+  </div>
+  <div class="faq-item">
+   <h4 class="question" style="cursor:pointer;">Why use jQuery?</h4>
+   <p class="answer" style="display:none;">It simplifies DOM manipulation, event handling, and Ajax calls.</p>
+  </div>
+
+  <!-- Acitivity 7.1: get Jokes -->
+  <button id="getJoke">Get a Joke</button>
+  <p id="joke"></p>
+
+  <!-- Acitivity 7.2: post form -->
+  <form id="nameForm">
+   <input type="text" id="username" placeholder="Enter your name" required>
+   <button type="submit">Submit</button>
+  </form>
+  <p id="response"></p>
+
+  <!-- Acitivity 8: Form Validation -->
+  <form id="signupForm">
+   <input type="text" id="name" placeholder="Enter your name" />
+   <input type="email" id="email" placeholder="Enter your email" />
+   <button type="submit">Submit</button>
+  </form>
+  <p id="error-msg" style="color: red;"></p>
+
+  <button id="changeBg">Change Background Color</button>
+
+  <p id="textPara">This is the original text.</p>
+  <button id="changeText">Change Text</button>
+
+  <script>
+    $(document).ready(function() {
+      // Activity 1.1: Alert on page load
+      alert("Page has loaded successfully!");
+
+      // Activity 1.2: Button click changes specific paragraph text
+      $('#changeBtn').click(function() {
+        $('#message').text("The text has been changed!");
+      });
+
+      // Activity 2.1: Change font color of all <p> tags to blue
+      $('p').css('color', 'blue');
+
+      // Activity 2.2: Change background color of all elements with class 'box'
+      $('.box').css('background-color', 'lightgreen');
+      
+      // Activity 3.1: Alert Button (Click Event)
+      $('#alertBtn').click(function() {
+        alert("You clicked the alert button!");
+      });
+
+      // Activity 3.2: Mouse Hover Effect
+      $('#hoverPara').hover(
+        function() {
+          $(this).text("You're hovering over me!");
+        },
+        function() {
+          $(this).text("Hover over this paragraph.");
+        }
+      );
+      
+      // Activity 4.1: Fade Effect
+      $('#fadeBtn').click(function() {
+        $('#fadeImg').fadeOut(1000); // fades out in 1 second
+      });
+
+      // Activity 4.2: Slide Effect
+      $('#toggleMenu').click(function() {
+        $('#menuBox').slideToggle();
+      });
+
+      // Activity 5.1: parent-child
+      $('span').parent().css('background-color', '#ffeeba');
+
+      // Activity 5.2: Sibling navigation
+      $('#firstPara').next().css('font-weight', 'bold');
+
+      // Activity 6.1: Hide and Show
+      $('#hideBtn').click(function() {
+        $('#info').hide();
+      });
+      $('#showBtn').click(function() {
+        $('#info').show();
+      });
+
+      // Activity 6.2: FAQ
+      $('.question').click(function() {
+        $(this).next('.answer').toggle();
+      });
+
+      // Activity 7.1: get Joke
+      $('#getJoke').click(function() {
+        $.get('https://official-joke-api.appspot.com/random_joke', function(data) {
+            $('#joke').text(`${data.setup} — ${data.punchline}`);
+        });
+      });
+
+      // Activity 7.2: post form
+      $('#nameForm').submit(function(e) {
+        e.preventDefault(); // Prevent page reload
+        var name = $('#username').val();
+
+        $.post('https://jsonplaceholder.typicode.com/posts', { name: name }, function(data) {
+            $('#response').text("Data submitted! Received ID: " + data.id);
+        });
+      });
+
+      // Activity 8: Form Validation
+      $('#signupForm').submit(function (e) {
+        e.preventDefault(); // Prevent actual form submission
+
+        const name = $('#name').val().trim();
+        const email = $('#email').val().trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (name === '') {
+            $('#error-msg').text('Name is required.');
+        } else if (email === '') {
+            $('#error-msg').text('Email is required.');
+        } else if (!emailRegex.test(email)) {
+            $('#error-msg').text('Please enter a valid email address.');
+        } else {
+            $('#error-msg').text('');
+            alert('Form submitted successfully!');
+        }
+      });
+
+      $("#changeBg").click(function(){
+        $("body").css("background-color", "#ADD8E6"); // Light Blue
+      });
+
+      $("#changeText").click(function(){
+        $("#textPara").text("The paragraph text has been updated!");
+      });
+    });
+  </script>
+
+</body>
+</html>
