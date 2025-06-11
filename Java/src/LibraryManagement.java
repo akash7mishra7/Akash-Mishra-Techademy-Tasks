@@ -86,15 +86,15 @@ public class LibraryManagement {
         library.addMember("Akash");
         library.addMember("Yash");
 
-        Book b1 = library.books.get(0);
-        Book b2 = library.books.get(1);
-        Member m1 = library.members.get(0);
-        Member m2 = library.members.get(1);
+        Book book1 = library.books.get(0);
+        Book book2 = library.books.get(1);
+        Member member1 = library.members.get(0);
+        Member member2 = library.members.get(1);
 
-        m1.borrowBook(b1);
-        m2.borrowBook(b2);
-        m1.borrowBook(b2);
-        m1.returnBook(b1);
+        member1.borrowBook(book1);
+        member2.borrowBook(book2);
+        member1.borrowBook(book2);
+        member1.returnBook(book1);
 
         library.showBooks();
         library.showMembers();
