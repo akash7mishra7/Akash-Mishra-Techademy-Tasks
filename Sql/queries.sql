@@ -65,4 +65,3 @@ SELECT
     products.product_name
 FROM suppliers
 FULL OUTER JOIN products ON suppliers.supplier_id = products.supplier_id;
-
