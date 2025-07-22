@@ -1,0 +1,179 @@
+echo :  to display any statements in console
+ 
+ 
+read
+ 
+ 
+Operators
+============
+ 
+Arithmatic operators
+ 
+	+	-  *	/ %
+ 
+ 
+Relational operators
+================
+ 
+	-gt	greater than
+ 
+	-lt	lessthan
+ 
+	-ge	greater than or equal to
+ 
+	-le	less than or equal to   
+ 
+	 -eq 	equal to
+	  -ne   not equal to
+ 
+Logical operators
+=================
+ 
+	AND		-a
+ 
+	OR		-o
+ 
+	NOT		!
+
+ 
+ 
+Conditional statements
+=====================
+	check given condition is TRUE or FALSE
+ 
+1. simple if
+================
+	if [ condition  ]
+	then
+ 
+		statements /commands
+ 
+	fi
+ 
+ 
+2. if else
+===========
+ 
+	if [ condition  ]
+	then
+ 
+		true -statements /commands
+ 
+	else
+		false-statements/commands
+ 
+	fi
+ 
+3. ladder if(if -elif-else)
+=============
+ 
+ 
+syn:
+	if [ condition  ]
+	then
+ 
+		true -statements /commands
+ 
+	elif [condition]
+	then
+		statements/commands
+ 
+	elif [condition]
+	then
+		statements/commands
+ 
+	..
+	….
+	else
+		statements
+ 
+	fi
+ 
+ 
+File operators
+---------------
+ 
+-e	file is exists or not
+-f  regular file
+-d   directory
+-r	read 
+-w  	write
+-x	executable
+-s	file not empty
+ 
+ 
+String operators
+================
+ 
+	=	equa to
+ 
+	!=	not equal to
+ 
+	<	greater than
+>	less than
+ 
+	-z 	String is null
+ 
+	-n	string is not null
+ 
+ 
+Command line arguments
+=====================
+ 
+ 
+iterative statements (loops)
+========================
+ 
+To execute set of statements continuslly till condition is TRUE.
+ 
+These are
+ 
+ 
+for loop
+============
+ 
+syn:
+ 
+	for variable in list
+	do
+ 
+		commands
+ 
+	done
+ 
+while
+==========
+ 
+syn:
+ 
+	while [ condition ]
+	do
+ 
+		commands
+ 
+	done
+ 
+ 
+In While , if the condition is TRUE then only execute set of commands repetativelly.
+ 
+until loop
+============
+	reverse of while loop
+ 
+syn:
+ 
+	until [condition]
+	do
+ 
+		commands
+ 
+	done
+ 
+	
+
+ 
+jumping /decision control statements
+======================
+ 
+break
+continue
